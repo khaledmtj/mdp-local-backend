@@ -119,11 +119,13 @@ class ImageProcessing :
         pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
         sys.stdout.write('text_detected: 3')
         ##tessdata_dir_config=r'--tessdata-dir "C:/Users/pc/anaconda3/envs/tesseract/tessdata"''
-        text_from_image = pytesseract.image_to_string(image,lang='ara')
-        sys.stdout.write('text_detected: 4')
+        try:
+            text_from_image = pytesseract.image_to_string(image,lang='ara', timeout=0.5)
+        except RuntimeError as timeout_error:
+            text_from_image = ""
+        sys.stdout.write('text_detected: 4'\n)
         #print(type(text_from_image))
-        print("text detected -------------------------- \n")
-        print(text_from_image)
+        sys.stdout.write("text detected --------------------------: " + text_from_image + "\n")
         #text_strip=text_from_image.strip('\n')
         #print(text_strip)
         #print(len(text_strip))
