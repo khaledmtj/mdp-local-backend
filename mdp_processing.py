@@ -123,7 +123,7 @@ class ImageProcessing :
             text_from_image = pytesseract.image_to_string(image,lang='ara', timeout=0.5)
         except RuntimeError as timeout_error:
             text_from_image = ""
-        sys.stdout.write('text_detected: 4'\n)
+        sys.stdout.write('text_detected: 4\n')
         #print(type(text_from_image))
         sys.stdout.write("text detected --------------------------: " + text_from_image + "\n")
         #text_strip=text_from_image.strip('\n')
