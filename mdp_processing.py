@@ -158,14 +158,15 @@ class ImageProcessing :
 
     def handleRotation(self, base64str):
         image = self.base64_to_image(base64str)
+        nbr_rots = 8
         angle=0
         d={}
-        for x in range(8):
+        for x in range(nbr_rots):
             image0=self.rotation2(image,angle)
             text_det=self.text_detected(image0)
             #d[len(text_det)]=angle
             d[angle]=len(text_det)
-            angle+=15
+            angle+= (360 / nbr_rots)
         max_angle = max(d, key=d.get)
         image_max = self.rotation2(image,max_angle)
         sys.stdout.write("handle rotation 1-")
