@@ -160,7 +160,7 @@ class ImageProcessing :
         image = self.base64_to_image(base64str)
         angle=0
         d={}
-        for x in range(25):
+##        for x in range(25):
             image0=self.rotation2(image,angle)
             text_det=self.text_detected(image0)
             #d[len(text_det)]=angle
