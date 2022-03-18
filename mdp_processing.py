@@ -168,7 +168,9 @@ class ImageProcessing :
         angle+=15
         max_angle = max(d, key=d.get)
         image_max = self.rotation2(image,max_angle)
+        sys.stdout.write("handle rotation 1-")
         text_det_max=self.text_detected(image_max)
+        sys.stdout.write("handle rotation 2-")
         json_detected=self.to_json(text_det_max)
    
         
