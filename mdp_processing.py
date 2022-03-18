@@ -161,11 +161,11 @@ class ImageProcessing :
         angle=0
         d={}
 ##        for x in range(25):
-            image0=self.rotation2(image,angle)
-            text_det=self.text_detected(image0)
-            #d[len(text_det)]=angle
-            d[angle]=len(text_det)
-            angle+=15
+        image0=self.rotation2(image,angle)
+        text_det=self.text_detected(image0)
+        #d[len(text_det)]=angle
+        d[angle]=len(text_det)
+        angle+=15
         max_angle = max(d, key=d.get)
         self.rotation2(image,max_angle)
         text_det_max=self.text_detected()
