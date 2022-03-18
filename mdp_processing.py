@@ -120,7 +120,7 @@ class ImageProcessing :
         sys.stdout.write('text_detected: 3')
         ##tessdata_dir_config=r'--tessdata-dir "C:/Users/pc/anaconda3/envs/tesseract/tessdata"''
         try:
-            text_from_image = pytesseract.image_to_string(image,lang='ara', timeout=0.5)
+            text_from_image = pytesseract.image_to_string(image,lang='ara', timeout=3)
         except RuntimeError as timeout_error:
             text_from_image = ""
         sys.stdout.write('text_detected: 4\n')
