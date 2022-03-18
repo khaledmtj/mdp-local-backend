@@ -167,8 +167,8 @@ class ImageProcessing :
         d[angle]=len(text_det)
         angle+=15
         max_angle = max(d, key=d.get)
-        self.rotation2(image,max_angle)
-        text_det_max=self.text_detected()
+        image_max = self.rotation2(image,max_angle)
+        text_det_max=self.text_detected(image_max)
         json_detected=self.to_json(text_det_max)
    
         
