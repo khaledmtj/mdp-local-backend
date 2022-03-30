@@ -91,7 +91,7 @@ class ImageProcessing :
         angle=0
         d={}
         image_gray=self.rgb2gray(image)
-        image_thresh=self.threshold(image_gray,130,255,cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+        image_thresh=self.threshold(image_gray,162,255,cv2.THRESH_BINARY)
         for x in range(nbr_rots):
             image0=self.rotation2(image_thresh,angle)
             text_det=self.text_detected(image0)
