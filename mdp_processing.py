@@ -41,22 +41,16 @@ class ImageProcessing :
         
     def text_detected(self, image):
         
-        
-      
-        sys.stdout.write('text_detected: 1')
         try:
             from PIL import Image
         except ImportError:
             import Image
         import pytesseract
-        sys.stdout.write('text_detected: 2')
         pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
-        sys.stdout.write('text_detected: 3')
         try:
             text_from_image = pytesseract.image_to_string(image,lang='ara', timeout=1)
         except RuntimeError as timeout_error:
             text_from_image = ""
-        sys.stdout.write('text_detected: 4\n')
       
         sys.stdout.write("text detected --------------------------: " + text_from_image + "\n")
         
