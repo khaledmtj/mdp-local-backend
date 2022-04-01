@@ -48,7 +48,7 @@ class ImageProcessing :
         import pytesseract
         pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
         try:
-            text_from_image = pytesseract.image_to_string(image,lang='ara', timeout=1)
+            text_from_image = pytesseract.image_to_string(image,lang='ara', timeout=2)
         except RuntimeError as timeout_error:
             text_from_image = ""
       
@@ -81,7 +81,7 @@ class ImageProcessing :
 
     def handleRotation(self, base64str):
         image = self.base64_to_image(base64str)
-        nbr_rots = 16
+        nbr_rots = 8
         angle=0
         d={}
         image_gray=self.rgb2gray(image)

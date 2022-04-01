@@ -11,9 +11,9 @@ def home():
 
 @app.route('/data',methods=['POST'])
 def data_req():
-        sys.stdout.write('data_req: 1')
+        sys.stdout.write('data_req: 1-')
         req = flask.request.form["sample"]
-        sys.stdout.write('data_req: 2')
+        sys.stdout.write('data_req: 2\n')
 ##        resp = "Server received: " + req
 ##        json = {"textDetected": resp}
         imProc = ImageProcessing('processor')
