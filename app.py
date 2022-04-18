@@ -42,6 +42,24 @@ def errors_req():
         return jsonStr
 
 
+@app.route('/sentiment', methods=['POST'])
+def sentiment_req():
+        sys.stdout.write('sentiment_req: 1-')
+        req = flask.request.form["sample"]
+        
+        sys.stdout.write('sentiment_req: 2\n')
+        imProc = ImageProcessing('processor')
+        
+        sentiment = imProc.sentimentAnalysis(req)
+        sys.stdout.write('sentiment_req: 3\n')
+
+        jsonData = {
+                'sentiment': sentiment
+                }
+        jsonStr = json.dumps(jsonData, ensure_ascii=False)
+
+        return jsonStr
+
 # @app.route('/data/<string:name>')
 # def get_data(name):
 # 	return jsonify(name)

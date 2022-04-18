@@ -9,6 +9,7 @@ import pytesseract
 import sys
 from camel_tools.tokenizers.word import simple_word_tokenize
 from camel_tools.disambig.mle import MLEDisambiguator
+from camel_tools.sentiment import SentimentAnalyzer
 
 
 class ImageProcessing :
@@ -116,6 +117,12 @@ class ImageProcessing :
         sys.stdout.write("Spell corrector ended \n")
                     
         return spell_errors
+
+    def sentimentAnalysis(self, sentence):
+        sa = SentimentAnalyzer.pretrained()
+        sentimentAA = sa.predict_sentence(sentence)
+
+        return sentimentAA
         
 
     def handleRotation(self, base64Str):
@@ -131,8 +138,10 @@ class ImageProcessing :
         img = cv2.erode(img, kernel, iterations=1)
         image_thresh=cv2.threshold(cv2.GaussianBlur(img, (3, 3), 0), 100, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
 
+##        image_thresh = image
+
 ##        cv2.namedWindow('img', cv2.WINDOW_NORMAL)
-##        cv2.resizeWindow('img', 1600, 1200)
+##        cv2.resizeWindow('img', 1400, 900)
 ##        cv2.imshow('img',image_thresh)
 ##        cv2.waitKey(0)
 ##        cv2.destroyAllWindows()
